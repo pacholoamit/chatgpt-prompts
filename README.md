@@ -37,18 +37,18 @@ const run = async () => {
 
   const prompt = createChatGPTPrompt(instance);
 
-  let res = await prompt.linuxTerminal("touch hello.txt");
+  let res = await prompt.linuxTerminal("ls"); // (I.E Desktop  Documents  Downloads  Music  Pictures  Templates  Videos)
   console.log(res.text);
 
-  res = await prompt.linuxTerminal("echo hello world > hello.txt");
+  res = await prompt.linuxTerminal("touch hello.txt"); // Creates hello.txt file
   console.log(res.text);
 
-  res = await prompt.linuxTerminal("cat hello.txt");
+  res = await prompt.linuxTerminal("ls");
 
   console.log(res.text);
 };
 
-run().catch((err) => console.log("Something went wrong"));
+run().catch((err) => console.log("Something went wrong")); // Desktop  Documents  Downloads  Music  Pictures  Templates  Videos  hello.txt
 ```
 
 # 💯 Credits
