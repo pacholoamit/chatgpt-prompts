@@ -53,5 +53,5 @@ run().catch((err) => console.log("Something went wrong"));
 
 # 💯 Credits
 
-- A big thank you to [Travis Fischer](https://github.com/transitive-bullshit) for making an amazing https://github.com/transitive-bullshit/chatgpt-api of the ChatGPT API.
+- A big thank you to [Travis Fischer](https://github.com/transitive-bullshit) for making an amazing [NodeJS Client](https://github.com/transitive-bullshit/chatgpt-api) of the ChatGPT API.
 - All of the prompts featured in this package comes from [awesome-chatgpt-prompts](https://github.com/f/awesome-chatgpt-prompts) maintained by [Fatih Kadir Akın](https://github.com/f)
