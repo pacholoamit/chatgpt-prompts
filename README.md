@@ -22,6 +22,10 @@ This package extends the unofficial [NodeJS Client](https://github.com/transitiv
 npm install chatgpt chatgpt-prompts
 ```
 
+# 🏗️ Project Setup
+
+Please feel free to read this [blogpost](https://dev.to/pacholoamit/use-over-140-amazing-chatgpt-prompts-in-10-minutes-na3) I made if you are unfamiliar in setting up a NodeJS project that is ESM comptaible
+
 # 🚀 Quickstart
 
 By default the `chatgpt-prompts` persists the instance of the prompt you are using. All of the 140+ prompts found at [awesome-chatgpt-prompts](https://github.com/f/awesome-chatgpt-prompts) are compiled in this library. 
@@ -50,9 +54,6 @@ const run = async () => {
 
 run().catch((err) => console.log("Something went wrong")); 
 ```
-# 🏗️ Project Setup
-
-Please feel free to read this [blogpost](https://dev.to/pacholoamit/use-over-140-amazing-chatgpt-prompts-in-10-minutes-na3) I made if you are unfamiliar in setting up a NodeJS project that is ESM comptaible
 
 # 💯 Credits
 
