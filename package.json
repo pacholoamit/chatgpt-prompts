@@ -1,14 +1,22 @@
 {
-  "name": "@pacholoamit/chatgpt-api-prompts",
+  "name": "chatgpt-api-prompts",
   "version": "0.0.1",
   "description": "A NodeJS ChatGPT prompts library",
-  "main": "dist/index.js",
-  "types": "dist/index.d.ts",
-  "files": [
-    "dist"
-  ],
+  "main": "./dist/index.js",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "require": "./dist/index.js",
+      "import": "./dist/index.mjs",
+      "types": "./dist/index.d.ts"
+    },
+    "./package.json": "./package.json"
+  },
   "scripts": {
-    "build": "npx tsc --skipLibCheck"
+    "build": "tsup src/index.ts --format cjs,esm --dts --clean",
+    "watch": "npm run build -- --watch src",
+    "prepublishOnly": "npm run build"
   },
   "repository": {
     "type": "git",
@@ -21,6 +29,7 @@
   },
   "homepage": "https://github.com/pacholoamit/chatgpt-api-prompts#readme",
   "devDependencies": {
+    "tsup": "^6.5.0",
     "typescript": "^4.9.5"
   },
   "dependencies": {
