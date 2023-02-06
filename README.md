@@ -17,3 +17,7 @@
     <img src="https://img.shields.io/github/license/pacholoamit/chatgpt-prompts" />
     <img src="https://img.shields.io/node/v/chatgpt-prompts">
 </p>
+
+# 💻 Installation
+
+This package extends the unofficial [NodeJS Client](https://github.com/transitive-bullshit/chatgpt-api) for OpenAI's GPT-3 API.
