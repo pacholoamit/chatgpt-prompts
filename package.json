@@ -1,18 +1,18 @@
 {
   "name": "chatgpt-prompts",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "description": "A NodeJS ChatGPT prompts library",
   "type": "module",
   "source": "./src/index.ts",
-  "types": "./build/index.d.ts",
+  "types": "./dist/index.d.ts",
   "files": [
     "dist"
   ],
   "exports": {
     ".": {
-      "import": "./build/index.js",
-      "types": "./build/index.d.ts",
-      "default": "./build/index.js"
+      "import": "./dist/index.js",
+      "types": "./dist/index.d.ts",
+      "default": "./dist/index.js"
     }
   },
   "engines": {
