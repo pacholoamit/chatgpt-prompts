@@ -34,7 +34,7 @@ const main = async () => {
   const prompts = await csv().fromString(res.data);
 
   prompts.forEach((prompt) => {
-    fs.appendFileSync("prompts.ts", createTemplate(prompt));
+    fs.appendFileSync("prompts.txt", createTemplate(prompt));
   });
 };
 

@@ -14,7 +14,7 @@
     "./package.json": "./package.json"
   },
   "scripts": {
-    "generate": "ts-node scripts/scrape.ts",
+    "scrape": "rimraf prompts.txt && ts-node scripts/scrape.ts",
     "build": "tsup src/index.ts --format cjs,esm --dts --clean",
     "watch": "npm run build -- --watch src",
     "prepublishOnly": "npm run build"
@@ -37,6 +37,8 @@
     "csvtojson": "^2.0.10",
     "fs": "^0.0.1-security",
     "lodash": "^4.17.21",
+    "rimraf": "^4.1.2",
+    "ts-node": "^10.9.1",
     "tsup": "^6.5.0",
     "typescript": "^4.9.5"
   },
