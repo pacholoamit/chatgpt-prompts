@@ -1,4 +1,5 @@
 import { ChatGPTAPI, ChatMessage } from "chatgpt";
+import { ChatGPTPromptParams } from "./types";
 
 export const createPromptFactory = (instance: ChatGPTAPI, prompt: string) => {
   let conversationId: string | undefined;

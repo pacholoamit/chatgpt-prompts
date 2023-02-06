@@ -1,11 +1,19 @@
 {
   "compilerOptions": {
-    "module": "CommonJS",
-    "target": "ES2015",
-    "sourceMap": true,
-    "outDir": "dist",
-    "noImplicitAny": true,
-    "declaration": true
+    "target": "es2020",
+    "lib": ["esnext"],
+    "allowJs": true,
+    "skipLibCheck": true,
+    "strict": false,
+    "forceConsistentCasingInFileNames": true,
+    "esModuleInterop": true,
+    "module": "esnext",
+    "moduleResolution": "node",
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "baseUrl": ".",
+    "outDir": "build",
+    "noEmit": true
   },
   "include": ["src/**/*", "scripts/**/*"],
   "exclude": ["node_modules/**/*", "**/*.spec.ts"]

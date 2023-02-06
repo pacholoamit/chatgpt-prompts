@@ -13,6 +13,9 @@
     },
     "./package.json": "./package.json"
   },
+  "engines": {
+    "node": ">=18"
+  },
   "scripts": {
     "scrape": "rimraf prompts.txt && rimraf imports.txt && ts-node scripts/scrape.ts",
     "build": "tsup src/index.ts --format cjs,esm --dts --clean",
@@ -44,5 +47,21 @@
   },
   "dependencies": {
     "chatgpt": "^4.1.1"
-  }
+  },
+  "keywords": [
+    "openai",
+    "chatgpt",
+    "chat",
+    "gpt",
+    "gpt-3",
+    "gpt3",
+    "gpt4",
+    "chatbot",
+    "machine learning",
+    "conversation",
+    "conversational ai",
+    "ai",
+    "ml",
+    "bot"
+  ]
 }
