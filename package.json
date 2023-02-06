@@ -1,0 +1,19 @@
+{
+  "name": "chatgpt-api-prompts",
+  "version": "1.0.0",
+  "description": "A NodeJS ChatGPT prompts library",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pacholoamit/chatgpt-api-prompts.git"
+  },
+  "author": "pacholo amit",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/pacholoamit/chatgpt-api-prompts/issues"
+  },
+  "homepage": "https://github.com/pacholoamit/chatgpt-api-prompts#readme"
+}
