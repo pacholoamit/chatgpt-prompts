@@ -1,13 +1,14 @@
 import { ChatGPTAPI, ChatMessage } from "chatgpt";
-import { ChatGPTPromptParams } from "./types";
+
+let conversationId: string | undefined;
+let parentMessageId: string | undefined;
 
 export const createPromptFactory = (instance: ChatGPTAPI, prompt: string) => {
-  let conversationId: string | undefined;
-  let parentMessageId: string | undefined;
-
-  return async (message: string, params: ChatGPTPromptParams = {}) => {
+  return async (message: string) => {
+    console.log("conversationId", conversationId);
+    console.log("parentMessageId", parentMessageId);
     let res: ChatMessage | undefined;
-    // If no previous message, send prompt
+
     if (!conversationId || !parentMessageId) {
       res = await instance.sendMessage(prompt);
       conversationId = res.conversationId;
@@ -17,8 +18,10 @@ export const createPromptFactory = (instance: ChatGPTAPI, prompt: string) => {
     res = await instance.sendMessage(message, {
       conversationId,
       parentMessageId,
-      ...params,
     });
+
+    conversationId = res.conversationId;
+    parentMessageId = res.id;
 
     return res;
   };
