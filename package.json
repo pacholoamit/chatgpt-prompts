@@ -1,6 +1,6 @@
 {
   "name": "chatgpt-api-prompts",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "description": "A NodeJS ChatGPT prompts library",
   "main": "./dist/index.js",
   "module": "./dist/index.mjs",
