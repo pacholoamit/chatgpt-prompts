@@ -24,7 +24,7 @@ npm install chatgpt chatgpt-prompts
 
 # 🚀 Quickstart
 
-By default the `chatgpt-prompts` persists the instance of the prompt you are using. 
+By default the `chatgpt-prompts` persists the instance of the prompt you are using. All of the 140+ prompts found at [awesome-chatgpt-prompts](https://github.com/f/awesome-chatgpt-prompts) are compiled in this library. 
 
 ```typescript
 import { createChatGPTPrompt } from "chatgpt-prompts";
