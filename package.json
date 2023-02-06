@@ -1,6 +1,6 @@
 {
   "name": "chatgpt-prompts",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "description": "A NodeJS ChatGPT prompts library",
   "type": "module",
   "source": "./src/index.ts",
@@ -20,7 +20,7 @@
   },
   "scripts": {
     "scrape": "rimraf prompts.txt && rimraf imports.txt && ts-node scripts/scrape.ts",
-    "build": "tsup src/index.ts --format cjs,esm --dts --clean",
+    "build": "tsup",
     "watch": "npm run build -- --watch src",
     "prepublishOnly": "npm run build"
   },
