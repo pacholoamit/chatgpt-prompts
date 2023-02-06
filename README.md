@@ -7,6 +7,7 @@
 </p>
 <br/>
 <br/>
+
 > NOTE: chatgpt-prompts is under active development, most of the features are still experimental and subject to change.
 
 <p align="center">    
