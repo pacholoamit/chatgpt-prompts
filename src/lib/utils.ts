@@ -5,8 +5,6 @@ let parentMessageId: string | undefined;
 
 export const createPromptFactory = (instance: ChatGPTAPI, prompt: string) => {
   return async (message: string) => {
-    console.log("conversationId", conversationId);
-    console.log("parentMessageId", parentMessageId);
     let res: ChatMessage | undefined;
 
     if (!conversationId || !parentMessageId) {
