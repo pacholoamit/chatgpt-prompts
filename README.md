@@ -50,6 +50,9 @@ const run = async () => {
 
 run().catch((err) => console.log("Something went wrong")); 
 ```
+# 🏗️ Project Setup
+
+Please feel free to read this [blogpost](https://dev.to/pacholoamit/use-over-140-amazing-chatgpt-prompts-in-10-minutes-na3) I made if you are unfamiliar in setting up a NodeJS project that is ESM comptaible
 
 # 💯 Credits
 
