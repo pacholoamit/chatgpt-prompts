@@ -3,7 +3,7 @@ import { defineConfig } from "tsup";
 export default defineConfig([
   {
     entry: ["src/index.ts"],
-    outDir: "build",
+    outDir: "dist",
     target: "node16",
     platform: "node",
     format: ["esm"],
