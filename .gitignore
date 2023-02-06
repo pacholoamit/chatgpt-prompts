@@ -1,3 +1,4 @@
 node_modules
 prompts.txt
 imports.txt
+.env
