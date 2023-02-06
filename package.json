@@ -1,18 +1,18 @@
 {
   "name": "chatgpt-prompts",
-  "version": "1.0.1",
+  "version": "1.0.0",
   "description": "A NodeJS ChatGPT prompts library",
   "type": "module",
   "main": "./dist/index.js",
-  "source": "./src/index.ts",
-  "types": "./build/index.d.ts",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
   "files": [
     "dist"
   ],
   "exports": {
     ".": {
-      "default": "./build/index.js",
-      "import": "./build/index.js",
+      "require": "./dist/index.js",
+      "import": "./dist/index.mjs",
       "types": "./dist/index.d.ts"
     }
   },
@@ -21,7 +21,7 @@
   },
   "scripts": {
     "scrape": "rimraf prompts.txt && rimraf imports.txt && ts-node scripts/scrape.ts",
-    "build": "tsup",
+    "build": "tsup src/index.ts --format cjs,esm --dts --clean",
     "watch": "npm run build -- --watch src",
     "prepublishOnly": "npm run build"
   },
