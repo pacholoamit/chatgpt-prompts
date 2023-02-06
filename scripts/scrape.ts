@@ -1,5 +1,5 @@
 import axios from "axios";
-import * as csv from "csvtojson";
+import csv from "csvtojson";
 import * as fs from "fs";
 import { camelCase } from "lodash";
 
