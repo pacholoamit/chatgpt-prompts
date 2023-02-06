@@ -14,7 +14,7 @@
     "./package.json": "./package.json"
   },
   "scripts": {
-    "scrape": "rimraf prompts.txt && ts-node scripts/scrape.ts",
+    "scrape": "rimraf prompts.txt && rimraf imports.txt && ts-node scripts/scrape.ts",
     "build": "tsup src/index.ts --format cjs,esm --dts --clean",
     "watch": "npm run build -- --watch src",
     "prepublishOnly": "npm run build"
