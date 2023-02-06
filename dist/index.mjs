@@ -35,21 +35,40 @@ var __async = (__this, __arguments, generator) => {
   });
 };
 
+// src/lib/utils.ts
+var createPromptFactory = (instance, prompt) => {
+  let conversationId;
+  let parentMessageId;
+  return (_0, ..._1) => __async(void 0, [_0, ..._1], function* (message, params = {}) {
+    let res;
+    if (!conversationId || !parentMessageId) {
+      res = yield instance.sendMessage(prompt);
+      conversationId = res.conversationId;
+      parentMessageId = res.id;
+    }
+    res = yield instance.sendMessage(message, __spreadValues({
+      conversationId,
+      parentMessageId
+    }, params));
+    return res;
+  });
+};
+
 // src/lib/prompts.ts
-var helloWold = (instance) => {
+var linuxTerminal = (instance) => {
+  const prompt = `i want you to act as a linux terminal. I will type commands and you will reply with what the terminal should show. I want you to only reply with the terminal output inside one unique code block, and nothing else. do not write explanations. do not type commands unless I instruct you to do so. when i need to tell you something in english, i will do so by putting text inside curly brackets {like this}.`;
   return {
-    helloWorld: () => __async(void 0, null, function* () {
-      const res = yield instance.sendMessage("Hello World");
-      return res;
+    linuxTerminal: (message) => __async(void 0, null, function* () {
+      return createPromptFactory(instance, prompt)(message);
     })
   };
 };
 
-// src/lib/factory.ts
+// src/lib/main.ts
 var createChatGPTPrompt = (instance) => {
-  return __spreadValues({}, helloWold(instance));
+  return __spreadValues({}, linuxTerminal(instance));
 };
-var factory_default = createChatGPTPrompt;
+var main_default = createChatGPTPrompt;
 export {
-  factory_default as createChatGPTPrompt
+  main_default as createChatGPTPrompt
 };

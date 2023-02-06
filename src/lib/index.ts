@@ -1,1 +1,1 @@
-export { default as createChatGPTPrompt } from "./factory";
+export { default as createChatGPTPrompt } from "./main";

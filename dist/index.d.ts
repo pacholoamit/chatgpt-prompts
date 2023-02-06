@@ -2,7 +2,7 @@ import * as chatgpt from 'chatgpt';
 import { ChatGPTAPI } from 'chatgpt';
 
 declare const createChatGPTPrompt: (instance: ChatGPTAPI) => {
-    helloWorld: () => Promise<chatgpt.ChatMessage>;
+    linuxTerminal: (message: string) => Promise<chatgpt.ChatMessage>;
 };
 
 export { createChatGPTPrompt };

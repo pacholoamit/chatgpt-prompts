@@ -3,7 +3,7 @@ import { ChatGPTAPI } from "chatgpt";
 
 const createChatGPTPrompt = (instance: ChatGPTAPI) => {
   return {
-    ...prompts.helloWold(instance),
+    ...prompts.linuxTerminal(instance),
   };
 };
 
