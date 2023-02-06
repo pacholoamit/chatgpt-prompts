@@ -41,6 +41,7 @@ const run = async () => {
 
   const prompt = createChatGPTPrompt(instance);
 
+  // Make ChatGPT act like a linux terminal
   let res = await prompt.linuxTerminal("ls"); // (I.E /usr /bin /etc )
   console.log(res.text);
 
