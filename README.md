@@ -1,7 +1,7 @@
 <p align="center">
   <h1 align="center"><b>🤖 Chat GPT Prompts</b></h1>
   <p align="center">
-  A collection of amazing and useful prompts for GPT-3
+  A collection of 140+ amazing and useful prompts for GPT-3
     </p>
 </p>
 <p align="center">    
