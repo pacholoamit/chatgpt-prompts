@@ -19,7 +19,7 @@
     "node": ">=18"
   },
   "scripts": {
-    "scrape": "rimraf prompts.txt && rimraf imports.txt && ts-node scripts/scrape.ts",
+    "generate:prompts": "ts-node generators/prompts/index.ts",
     "build": "tsup",
     "watch": "npm run build -- --watch src",
     "prepublishOnly": "npm run build"
