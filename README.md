@@ -12,7 +12,7 @@
     <img src="https://img.shields.io/node/v/chatgpt-prompts">
 </p>
 
-> NOTE: chatgpt-prompts is under active development, most of the features are still experimental and subject to change.
+> NOTE: chatgpt-prompts is under active development, most of the features are still experimental and subject to change. This library is also featured in the [unofficial NodeJS client](https://github.com/transitive-bullshit/chatgpt-api) for OpenAI's ChatGPT 3 API.
 
 # 💻 Installation
 
