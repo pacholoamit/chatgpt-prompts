@@ -1,8 +1,9 @@
 import axios from "axios";
 import csv from "csvtojson";
+import ejs from "ejs";
 import * as fs from "fs";
 import { funcTemplate, methodImportTemplate } from "./template";
-import { promptsFile, url, methodImportsFile } from "./constants";
+import { promptsFile, url, methodImportsFile, templateMarkdownFile } from "./constants";
 import { CSVPrompts } from "./types";
 
 const makeUniquePrompts = (prompts: CSVPrompts[]) => {
@@ -25,10 +26,12 @@ const main = async () => {
   const prompts: CSVPrompts[] = await csv().fromString(res.data);
   const uniquePrompts = makeUniquePrompts(prompts);
 
-  for (const prompt of uniquePrompts) {
-    fs.appendFileSync(promptsFile, funcTemplate(prompt));
-    fs.appendFileSync(methodImportsFile, methodImportTemplate(prompt));
-  }
+  const data = await ejs.renderFile(templateMarkdownFile, { prompts: uniquePrompts });
+  console.log(data);
+  // for (const prompt of uniquePrompts) {
+  //   fs.appendFileSync(promptsFile, funcTemplate(prompt));
+  //   fs.appendFileSync(methodImportsFile, methodImportTemplate(prompt));
+  // }
 };
 
 main().catch((err) => console.log(err));
