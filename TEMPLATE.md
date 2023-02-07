@@ -28,11 +28,11 @@ Please feel free to read this [blogpost](https://dev.to/pacholoamit/use-over-140
 to set up your project.
 
 ```bash
-git clone --depth 1 https://github.com/pacholoamit/chatgpt-prompts.git # Clone the repo
-cp -r chatgpt-prompts/examples/basic my-chatgpt-app # Copy the example in the examples folder
-cd my-chatgpt-app # Go to the project directory
-npm install # Install dependencies & Make sure to change the OPEN_AI_API_KEY
-npm start # Run the code
+git clone --depth 1 https://github.com/pacholoamit/chatgpt-prompts.git
+cp -r chatgpt-prompts/examples/basic my-chatgpt-app
+cd my-chatgpt-app
+npm install #  Make sure to change the OPEN_AI_API_KEY
+npm start
 ```
 
 # 🚀 Quickstart
@@ -54,11 +54,10 @@ const run = async () => {
   let res = await prompt.accountant("Why am I still broke as a software engineer?");
   console.log(res.text);
 
-  res = await prompt.linuxTerminal("How do I not become broke as a software engineer?");
+  res = await prompt.accountant("How do I not become broke as a software engineer?");
   console.log(res.text);
 
-  res = await prompt.linuxTerminal("What am I?");
-
+  res = await prompt.linuxTerminal("Am I a software engineer?");
   console.log(res.text);
 };
 

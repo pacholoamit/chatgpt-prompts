@@ -14,8 +14,7 @@ const run = async () => {
   res = await prompt.linuxTerminal("How do I not become broke as a software engineer?");
   console.log(res.text);
 
-  res = await prompt.linuxTerminal("What am I?");
-
+  res = await prompt.linuxTerminal("Am I a software engineer?");
   console.log(res.text);
 };
 
