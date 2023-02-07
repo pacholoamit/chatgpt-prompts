@@ -1,5 +1,6 @@
 import { camelCase } from "lodash";
 import { CSVPrompts } from "../shared/types";
+import { cleanBackTicks } from "../shared/utils";
 
 const functionTemplate = ({ act, prompt }: CSVPrompts) => {
   const func = camelCase(act);
