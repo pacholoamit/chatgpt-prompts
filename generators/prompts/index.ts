@@ -10,7 +10,7 @@ const makeUniquePrompts = (prompts: CSVPrompts[]) => {
 
   prompts.forEach((prompt) => {
     let newPrompt = prompt;
-    let counter = 1;
+    let counter = 2;
     if (uniqueArray.some((item) => item.act === newPrompt.act)) {
       newPrompt.act = `${newPrompt.act}${counter}`;
       counter++;
