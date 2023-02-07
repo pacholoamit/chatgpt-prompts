@@ -17,6 +17,7 @@
 # 💻 Installation
 
 This package extends the unofficial [NodeJS Client](https://github.com/transitive-bullshit/chatgpt-api) for OpenAI's GPT-3 API.
+Make sure you have `node >= 18` and have an OpenAI API Key that you can get [here](https://platform.openai.com/account/api-keys) before you proceed.
 
 ```
 npm install chatgpt chatgpt-prompts
