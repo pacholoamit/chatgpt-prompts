@@ -8,13 +8,13 @@ const run = async () => {
 
   const prompt = createChatGPTPrompt(instance);
 
-  let res = await prompt.linuxTerminal("touch hello.txt");
+  let res = await prompt.accountant("Why am I still broke as a software engineer?");
   console.log(res.text);
 
-  res = await prompt.linuxTerminal("echo hello world > hello.txt");
+  res = await prompt.linuxTerminal("How do I not become broke as a software engineer?");
   console.log(res.text);
 
-  res = await prompt.linuxTerminal("cat hello.txt");
+  res = await prompt.linuxTerminal("What am I?");
 
   console.log(res.text);
 };
