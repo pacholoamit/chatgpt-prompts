@@ -1,8 +1,16 @@
-import ts from "typescript";
-import fs from "fs";
+import axios from "axios";
+import csv from "csvtojson";
+import * as fs from "fs";
+import functionTemplate from "./template";
+import { url } from "../constants";
 
-const name = "test.ts";
-const code = "console.log('hello world')";
-const sourceFile = ts.createSourceFile(name, code, ts.ScriptTarget.Latest, false, ts.ScriptKind.TS);
+const main = async () => {
+  const res = await axios.get(url);
+  const prompts = await csv().fromString(res.data);
 
-fs.writeFileSync(name, sourceFile.getFullText());
+  prompts.forEach((prompt) => {
+    fs.appendFileSync("prompts.txt", functionTemplate(prompt));
+  });
+};
+
+main().catch((err) => console.log(err));
