@@ -74,7 +74,7 @@ Here are all of the available prompts you can use with this package including th
 ### Definition
 
 ```typescript
-<%= item.code %>
+<%- item.code %>
 ```
 
 <% }); %>
