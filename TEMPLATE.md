@@ -61,9 +61,9 @@ run().catch((err) => console.log("Something went wrong"));
 - A big thank you to [Travis Fischer](https://github.com/transitive-bullshit) for making an amazing [NodeJS Client](https://github.com/transitive-bullshit/chatgpt-api) of the ChatGPT API.
 - All of the prompts featured in this package comes from [awesome-chatgpt-prompts](https://github.com/f/awesome-chatgpt-prompts) maintained by [Fatih Kadir Akın](https://github.com/f)
 
-# ⭐ All Prompts
+# ⭐ Prompts
 
-Here are all of the available prompts you can use with this package including the function definition associated with.
+Here are all of the 140+ available prompts you can use with this package including the function definition associated with.
 
 <% data.forEach(function(item) { %>
 
