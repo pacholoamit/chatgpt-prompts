@@ -35,6 +35,7 @@ const createChatGPTPrompt = (instance: ChatGPTAPI) => {
     ...prompts.cyberSecuritySpecialist(instance),
     ...prompts.recruiter(instance),
     ...prompts.lifeCoach(instance),
+    ...prompts.lifeCoach2(instance),
     ...prompts.etymologist(instance),
     ...prompts.commentariat(instance),
     ...prompts.magician(instance),
