@@ -1,9 +1,9 @@
 import axios from "axios";
 import csv from "csvtojson";
 import * as fs from "fs";
-import functionTemplate from "./template";
-import { promptsFile, url } from "../constants";
-import { CSVPrompts } from "../shared/types";
+import { funcTemplate, methodImportTemplate } from "./template";
+import { promptsFile, url } from "./constants";
+import { CSVPrompts } from "./types";
 
 const makeUniquePrompts = (prompts: CSVPrompts[]) => {
   const uniqueArray: CSVPrompts[] = [];
@@ -26,7 +26,8 @@ const main = async () => {
   const uniquePrompts = makeUniquePrompts(prompts);
 
   for (const prompt of uniquePrompts) {
-    fs.appendFileSync(promptsFile, functionTemplate(prompt));
+    fs.appendFileSync(promptsFile, funcTemplate(prompt));
+    fs.appendFileSync
   }
 };
 
