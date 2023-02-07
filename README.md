@@ -31,8 +31,8 @@ to set up your project.
 git clone --depth 1 https://github.com/pacholoamit/chatgpt-prompts.git
 cp -r chatgpt-prompts/examples/basic my-chatgpt-app
 cd my-chatgpt-app
-npm install #  Make sure to change the OPEN_AI_API_KEY
-npm start
+npm install
+npm start  # Make sure to change the OPEN_AI_API_KEY in src/index.ts
 ```
 
 # 🚀 Quickstart
