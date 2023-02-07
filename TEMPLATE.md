@@ -63,9 +63,18 @@ run().catch((err) => console.log("Something went wrong"));
 
 # ⭐ All Prompts
 
-Here are all of the available prompts you can use with this package
+Here are all of the available prompts you can use with this package including the function definition associated with.
 
-<% prompts.forEach(function(prompt) { %>
-<%= prompt.act %>
-<%= prompt.prompt %>
+<% data.forEach(function(item) { %>
+
+## <%= item.prompt.act %>
+
+<%= item.prompt.prompt %>
+
+### Definition
+
+```typescript
+<%= item.code %>
+```
+
 <% }); %>
