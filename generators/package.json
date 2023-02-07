@@ -1,9 +1,9 @@
 {
   "name": "chatgpt-prompts-generator",
   "version": "1.1.1",
-  "description": "",
+  "description": "Generators for the chatgpt-api-prompts package",
   "scripts": {
-    "generate:prompts": ""
+    "generate:prompts": "ts-node prompts/index.ts"
   },
   "keywords": [],
   "author": "",

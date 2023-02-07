@@ -19,7 +19,6 @@
     "node": ">=18"
   },
   "scripts": {
-    "generate:prompts": "ts-node generators/prompts/index.ts",
     "build": "tsup",
     "watch": "npm run build -- --watch src",
     "prepublishOnly": "npm run build"
