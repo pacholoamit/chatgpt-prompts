@@ -3,4 +3,4 @@ prompts.txt
 imports.txt
 .env
 dist
-artifacts
+artifacts/*
