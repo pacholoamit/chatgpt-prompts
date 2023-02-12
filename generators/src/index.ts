@@ -2,8 +2,8 @@ import axios from "axios";
 import csv from "csvtojson";
 import ejs from "ejs";
 import * as fs from "fs";
-import { funcTemplate, methodImportTemplate } from "./template";
-import { promptsFile, url, methodImportsFile, templateMarkdownFile, readmeFile } from "./constants";
+import { funcTemplate, methodImportTemplate, typeTemplate } from "./template";
+import { promptsFile, url, methodImportsFile, templateMarkdownFile, readmeFile, typesFile } from "./constants";
 import { CSVPrompts } from "./types";
 
 const makeUniquePrompts = (prompts: CSVPrompts[]) => {
@@ -38,6 +38,11 @@ const writeMarkdownFile = async (markdownReadmePrompts: { code: string; prompt: 
   fs.writeFileSync(readmeFile, data);
 };
 
+const writeTypesFile = (uniquePrompts: CSVPrompts[]) => {
+  const types = typeTemplate(uniquePrompts);
+  fs.writeFileSync(typesFile, types);
+};
+
 const writeFiles = (uniquePrompts: CSVPrompts[]) => {
   for (const prompt of uniquePrompts) {
     const func = funcTemplate(prompt);
@@ -51,6 +56,7 @@ const main = async () => {
   const uniquePrompts = makeUniquePrompts(prompts);
   const markdownReadmePrompts = makeMarkdownReadmePrompts(uniquePrompts);
 
+  await writeTypesFile(uniquePrompts);
   await writeMarkdownFile(markdownReadmePrompts);
   writeFiles(uniquePrompts);
 };

@@ -9,15 +9,31 @@ export const funcTemplate = ({ act, prompt }: CSVPrompts) => {
 export const ${func} = (instance: ChatGPTAPI) => {
   const prompt = \`${promptDescription}\`;
   return {
-    /**
-     * @description ${prompt}
-     * @param {string} message
-     * @returns {Promise<ChatMessage>} ChatGPT Message
-     */    
+ 
     ${func}: async (message: string): Promise<ChatMessage> => createPromptFactory(instance, prompt)(message),
   };
 };
 `;
+  return template;
+};
+
+export const typeTemplate = (prompts: CSVPrompts[]) => {
+  const template = `
+interface ChatGPTPrompt {
+  ${prompts
+    .map(
+      (prompt) => `
+    /**
+     * @description ${cleanBackTicks(prompt.prompt)}
+     * @param {string} message
+     * @returns {Promise<ChatMessage>} ChatGPT Message
+     */   
+  ${camelCase(prompt.act)}: (message: string) => Promise<ChatMessage>;`
+    )
+    .join("\n")} 
+}
+  `;
+
   return template;
 };
 
