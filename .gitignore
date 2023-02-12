@@ -1,6 +1,7 @@
 node_modules
 prompts.txt
 imports.txt
+types.txt
 .env
 dist
 artifacts/*
