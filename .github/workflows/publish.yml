@@ -13,18 +13,6 @@ jobs:
           node-version: "16.x"
           registry-url: "https://registry.npmjs.org"
       - run: npm ci
-      - name: publish
-        run: |
-          npx can-npm-publish --verbose && npm publish || echo "Does not publish"
+      - run: npm publish
         env:
-          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      - name: package-version
-        run: node -p -e '`PACKAGE_VERSION=${require("./package.json").version}`' >> $GITHUB_ENV
-      - name: package-version-to-git-tag
-        uses: pkgdeps/git-tag-action@v2
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          github_repo: ${{ github.repository }}
-          version: ${{ env.PACKAGE_VERSION }}
-          git_commit_sha: ${{ github.sha }}
-          git_tag_prefix: "v"
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
