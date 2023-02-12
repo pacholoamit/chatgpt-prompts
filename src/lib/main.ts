@@ -1,7 +1,8 @@
 import * as prompts from "./prompts";
 import { ChatGPTAPI } from "chatgpt";
+import { ChatGPTPrompt } from "./types";
 
-const createChatGPTPrompt = (instance: ChatGPTAPI) => {
+const createChatGPTPrompt = (instance: ChatGPTAPI): ChatGPTPrompt => {
   return {
     ...prompts.linuxTerminal(instance),
     ...prompts.englishTranslatorAndImprover(instance),
