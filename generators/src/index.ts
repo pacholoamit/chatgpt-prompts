@@ -4,10 +4,11 @@ import ejs from "ejs";
 import * as fs from "fs";
 import { funcTemplate, methodImportTemplate, typeTemplate } from "./template";
 import { promptsFile, url, methodImportsFile, templateMarkdownFile, readmeFile, typesFile } from "./constants";
-import { CSVPrompts } from "./types";
+import { PromptCsvField } from "./types";
+import createReadmeGenerator from "./readme/readme-generator";
 
-const makeUniquePrompts = (prompts: CSVPrompts[]) => {
-  const uniqueArray: CSVPrompts[] = [];
+const makeUniquePrompts = (prompts: PromptCsvField[]) => {
+  const uniqueArray: PromptCsvField[] = [];
 
   prompts.forEach((prompt) => {
     let newPrompt = prompt;
@@ -21,29 +22,17 @@ const makeUniquePrompts = (prompts: CSVPrompts[]) => {
   return uniqueArray;
 };
 
-const getPrompts = async (): Promise<CSVPrompts[]> => {
+const getPrompts = async (): Promise<PromptCsvField[]> => {
   const res = await axios.get(url);
   return csv().fromString(res.data);
 };
 
-const makeMarkdownReadmePrompts = (prompts: CSVPrompts[]): { code: string; prompt: CSVPrompts }[] => {
-  return prompts.map((prompt) => {
-    const code = funcTemplate(prompt);
-    return { code, prompt };
-  });
-};
-
-const writeMarkdownFile = async (markdownReadmePrompts: { code: string; prompt: CSVPrompts }[]) => {
-  const data = await ejs.renderFile(templateMarkdownFile, { data: markdownReadmePrompts });
-  fs.writeFileSync(readmeFile, data);
-};
-
-const writeTypesFile = (uniquePrompts: CSVPrompts[]) => {
+const writeTypesFile = (uniquePrompts: PromptCsvField[]) => {
   const types = typeTemplate(uniquePrompts);
   fs.writeFileSync(typesFile, types);
 };
 
-const writeFiles = (uniquePrompts: CSVPrompts[]) => {
+const writeFiles = (uniquePrompts: PromptCsvField[]) => {
   for (const prompt of uniquePrompts) {
     const func = funcTemplate(prompt);
     fs.appendFileSync(promptsFile, func);
@@ -51,14 +40,18 @@ const writeFiles = (uniquePrompts: CSVPrompts[]) => {
   }
 };
 
-const main = async () => {
-  const prompts = await getPrompts();
-  const uniquePrompts = makeUniquePrompts(prompts);
-  const markdownReadmePrompts = makeMarkdownReadmePrompts(uniquePrompts);
+const generateReadme = async (prompts: PromptCsvField[]) => {
+  const readmeGenerator = createReadmeGenerator(templateMarkdownFile, readmeFile);
+  const readmePrompts = readmeGenerator.format(prompts);
+  readmeGenerator.generate(readmePrompts);
+};
 
-  await writeTypesFile(uniquePrompts);
-  await writeMarkdownFile(markdownReadmePrompts);
-  writeFiles(uniquePrompts);
+const main = async () => {
+  const prompts = await getPrompts().then((prompts) => makeUniquePrompts(prompts));
+
+  await generateReadme(prompts);
+  // await writeTypesFile(prompts);
+  // writeFiles(prompts);
 };
 
 main().catch((err) => console.error(err));
