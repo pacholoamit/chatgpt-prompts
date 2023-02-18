@@ -26,6 +26,7 @@ jobs:
 
       - name: Install dependencies
         run: npm ci
-
+      - name: Build library
+        run: npm run build
       - name: Check Typescript types & Run Jest tests
         run: npm run test

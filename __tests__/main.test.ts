@@ -1,5 +1,5 @@
 import { createChatGPTPrompt } from "../dist";
-import { describe, expect, it, test } from "@jest/globals";
+import { expect, test } from "@jest/globals";
 import { jest } from "@jest/globals";
 
 jest.setTimeout(100000);
