@@ -13,6 +13,7 @@ const createChatGPTPrompt = (params: Partial<ChatGPTPromptParams>): ChatGPTPromp
     ...prompts.javaScriptConsole(instance),
     ...prompts.excelSheet(instance),
     ...prompts.englishPronunciationHelper(instance),
+    ...prompts.spokenEnglishTeacherAndImprover(instance),
     ...prompts.travelGuide(instance),
     ...prompts.plagiarismChecker(instance),
     ...prompts.characterFromMovieBookAnything(instance),
@@ -39,7 +40,6 @@ const createChatGPTPrompt = (params: Partial<ChatGPTPromptParams>): ChatGPTPromp
     ...prompts.cyberSecuritySpecialist(instance),
     ...prompts.recruiter(instance),
     ...prompts.lifeCoach(instance),
-    ...prompts.lifeCoach2(instance),
     ...prompts.etymologist(instance),
     ...prompts.commentariat(instance),
     ...prompts.magician(instance),
@@ -146,6 +146,7 @@ const createChatGPTPrompt = (params: Partial<ChatGPTPromptParams>): ChatGPTPromp
     ...prompts.commitMessageGenerator(instance),
     ...prompts.chiefExecutiveOfficer(instance),
     ...prompts.diagramGenerator(instance),
+    ...prompts.lifeCoach2(instance),
     ...prompts.speechLanguagePathologistSlp(instance),
     ...prompts.startupTechLawyer(instance),
     ...prompts.titleGeneratorForWrittenPieces(instance),
@@ -154,6 +155,7 @@ const createChatGPTPrompt = (params: Partial<ChatGPTPromptParams>): ChatGPTPromp
     ...prompts.mathematicalHistoryTeacher(instance),
     ...prompts.songRecommender(instance),
     ...prompts.coverLetter(instance),
+    ...prompts.technologyTransferer(instance),
     ...prompts.unconstrainedAiModelDan(instance),
   };
 };

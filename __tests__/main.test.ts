@@ -1,5 +1,4 @@
 import { createChatGPTPrompt } from "../src";
-
 import { describe, expect, test, it } from "@jest/globals";
 
 describe("chatgpt-prompts library", () => {

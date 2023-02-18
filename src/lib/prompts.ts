@@ -1,7 +1,6 @@
 import { ChatGPTAPI, ChatMessage } from "chatgpt";
 import { createPromptFactory } from "./utils";
 
-
 export const linuxTerminal = (instance: ChatGPTAPI) => {
   const prompt = `I want you to act as a linux terminal. I will type commands and you will reply with what the terminal should show. I want you to only reply with the terminal output inside one unique code block, and nothing else. do not write explanations. do not type commands unless I instruct you to do so. when i need to tell you something in english, i will do so by putting text inside curly brackets {like this}. my first command is pwd`;
   return {
@@ -43,6 +42,14 @@ export const englishPronunciationHelper = (instance: ChatGPTAPI) => {
   const prompt = `I want you to act as an English pronunciation assistant for Turkish speaking people. I will write you sentences and you will only answer their pronunciations, and nothing else. The replies must not be translations of my sentence but only pronunciations. Pronunciations should use Turkish Latin letters for phonetics. Do not write explanations on replies. My first sentence is "how the weather is in Istanbul?"`;
   return {
     englishPronunciationHelper: async (message: string): Promise<ChatMessage> =>
+      createPromptFactory(instance, prompt)(message),
+  };
+};
+
+export const spokenEnglishTeacherAndImprover = (instance: ChatGPTAPI) => {
+  const prompt = `I want you to act as a spoken English teacher and improver. I will speak to you in English and you will reply to me in English to practice my spoken English. I want you to keep your reply neat, limiting the reply to 100 words. I want you to strictly correct my grammar mistakes, typos, and factual errors. I want you to ask me a question in your reply. Now let's start practicing, you could ask me a question first. Remember, I want you to strictly correct my grammar mistakes, typos, and factual errors.`;
+  return {
+    spokenEnglishTeacherAndImprover: async (message: string): Promise<ChatMessage> =>
       createPromptFactory(instance, prompt)(message),
   };
 };
@@ -1065,6 +1072,14 @@ export const coverLetter = (instance: ChatGPTAPI) => {
   const prompt = `In order to submit applications for jobs, I want to write a new cover letter. Please compose a cover letter describing my technical skills. I've been working with web technology for two years. I've worked as a frontend developer for 8 months. I've grown by employing some tools. These include [...Tech Stack], and so on. I wish to develop my full-stack development skills. I desire to lead a T-shaped existence. Can you write a cover letter for a job application about myself?`;
   return {
     coverLetter: async (message: string): Promise<ChatMessage> => createPromptFactory(instance, prompt)(message),
+  };
+};
+
+export const technologyTransferer = (instance: ChatGPTAPI) => {
+  const prompt = `I want you to act as a Technology Transferer, I will provide resume bullet points and you will map each bullet point from one technology to a different technology. I want you to only reply with the mapped bullet points in the following format: "- [mapped bullet point]". Do not write explanations. Do not provide additional actions unless instructed. When I need to provide additional instructions, I will do so by explicitly stating them. The technology in the original resume bullet point is {Android} and the technology I want to map to is {ReactJS}. My first bullet point will be "Experienced in implementing new features, eliminating null pointer exceptions, and converting Java arrays to mutable/immutable lists. "`;
+  return {
+    technologyTransferer: async (message: string): Promise<ChatMessage> =>
+      createPromptFactory(instance, prompt)(message),
   };
 };
 
