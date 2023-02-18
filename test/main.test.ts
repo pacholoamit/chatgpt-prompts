@@ -5,6 +5,6 @@ describe("pass", () => {
   it("should pass", () => {
     const bool = true;
 
-    expect(bool).toBe(false);
+    expect(bool).toBe(true);
   });
 });
