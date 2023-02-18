@@ -1,11 +1,18 @@
 import * as prompts from "./prompts";
 import { ChatGPTAPI } from "chatgpt";
-import { ChatGPTPrompt } from "./types";
+import { ChatGPTPromptParams, ChatGPTPromptsClient } from "./types";
 
-type ChatGPTPromptParams = ConstructorParameters<typeof ChatGPTAPI>[0];
-
-const createChatGPTPrompt = (params: Partial<ChatGPTPromptParams>): ChatGPTPrompt => {
+/**
+ * @description ChatGPT Prompt, accepts the same parameters as the
+ * ChatGPTAPI constructor, but returns a promise that resolves to a
+ * ChatMessage.
+ *
+ * @see {@link https://github.com/transitive-bullshit/chatgpt-api/blob/main/docs/classes/ChatGPTAPI.md#constructor}
+ *
+ */
+const createChatGPTPrompt: ChatGPTPromptsClient = (params) => {
   const instance = new ChatGPTAPI(params as ChatGPTPromptParams);
+
   return {
     ...prompts.linuxTerminal(instance),
     ...prompts.englishTranslatorAndImprover(instance),

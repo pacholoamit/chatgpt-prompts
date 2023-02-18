@@ -22,7 +22,7 @@
     "build": "tsup",
     "watch": "npm run build -- --watch src",
     "pretest": "tsc --noEmit",
-    "watch:test": "NODE_OPTIONS=--experimental-vm-modules npx jest --watchAll --verbose --",
+    "watch:test": "NODE_OPTIONS=--experimental-vm-modules npx jest --watchAll --verbose --coverage",
     "test": "NODE_OPTIONS=--experimental-vm-modules npx jest --verbose --coverage",
     "prepublishOnly": "npm run build",
     "generate:prompts": "cd generators && npm run generate"

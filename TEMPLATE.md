@@ -42,14 +42,19 @@ By default the `chatgpt-prompts` persists the instance of the prompt you are usi
 
 ```typescript
 import { createChatGPTPrompt } from "chatgpt-prompts";
-import { ChatGPTAPI } from "chatgpt";
 
 const run = async () => {
-  const instance = new ChatGPTAPI({
+  /**
+   * @description ChatGPT Prompt, accepts the same parameters as the
+   * ChatGPTAPI constructor, but returns a promise that resolves to a
+   * ChatMessage.
+   *
+   * @see {@link https://github.com/transitive-bullshit/chatgpt-api/blob/main/docs/classes/ChatGPTAPI.md#constructor}
+   *
+   */
+  const prompts = createChatGPTPrompt({
     apiKey: "OPEN_AI_API_KEY",
   });
-
-  const prompt = createChatGPTPrompt(instance);
 
   // Use the Accountant prompt of ChatGPT
   let res = await prompt.accountant("Why am I still broke as a software engineer?");
