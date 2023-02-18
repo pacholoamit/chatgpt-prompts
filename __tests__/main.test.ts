@@ -4,8 +4,14 @@ import { jest } from "@jest/globals";
 
 jest.setTimeout(100000);
 
+const apiKey = process.env.OPEN_AI_API_KEY;
+
+test("API key must be a string", () => {
+  expect(typeof apiKey).toBe("string");
+});
+
 const prompts = createChatGPTPrompt({
-  apiKey: process.env.OPEN_AI_API_KEY,
+  apiKey,
 });
 
 const message = await prompts.lunatic("Hello, world!");
