@@ -21,7 +21,8 @@
   "scripts": {
     "build": "tsup",
     "watch": "npm run build -- --watch src",
-    "test": "npx tsc --noEmit",
+    "pretest": "tsc --noEmit",
+    "test": "jest --watchAll --verbose --coverage ",
     "prepublishOnly": "npm run build",
     "generate:prompts": "cd generators && npm run generate"
   },
@@ -36,6 +37,7 @@
   },
   "homepage": "https://github.com/pacholoamit/chatgpt-prompts#readme",
   "devDependencies": {
+    "@jest/globals": "^29.4.3",
     "@types/lodash": "^4.14.191",
     "@types/node": "^18.11.19",
     "axios": "^1.3.2",
