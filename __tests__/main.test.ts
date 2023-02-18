@@ -1,19 +1,26 @@
 import { createChatGPTPrompt } from "../dist";
-import { describe, expect, it } from "@jest/globals";
+import { describe, expect, it, test } from "@jest/globals";
 import { jest } from "@jest/globals";
-import { info } from "console";
 
 jest.setTimeout(100000);
 
-describe("chatgpt-prompts library", () => {
-  it("should pass", async () => {
-    info(process.env.OPEN_AI_API_KEY);
-    const prompts = createChatGPTPrompt({
-      apiKey: process.env.OPEN_AI_API_KEY,
-    });
+const prompts = createChatGPTPrompt({
+  apiKey: process.env.OPEN_AI_API_KEY,
+});
 
-    const res = await prompts.lunatic("Hello, world!");
+const message = await prompts.lunatic("Hello, world!");
 
-    expect(res).not.toThrowError();
-  });
+test("must return prompts as an object", () => {
+  expect(prompts && typeof prompts === "object").toBe(true);
+});
+
+test("must return a message as an object", () => {
+  expect(message && typeof message == "object").toBe(true);
+});
+test("must return a conversationId as a string from a message", () => {
+  expect(typeof message.conversationId).toBe("string");
+});
+
+test("must return a text as a string from a message", () => {
+  expect(typeof message.text).toBe("string");
 });
