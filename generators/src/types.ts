@@ -1,4 +1,4 @@
-export interface CSVPrompts {
+export interface PromptCsvField {
   act: string;
   prompt: string;
 }

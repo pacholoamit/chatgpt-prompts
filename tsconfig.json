@@ -15,6 +15,6 @@
     "outDir": "build",
     "noEmit": true
   },
-  "include": ["src"],
+  "include": ["src", "__tests__"],
   "exclude": ["node_modules"]
 }

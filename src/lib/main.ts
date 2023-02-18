@@ -1,8 +1,18 @@
 import * as prompts from "./prompts";
 import { ChatGPTAPI } from "chatgpt";
-import { ChatGPTPrompt } from "./types";
+import { ChatGPTPromptParams, ChatGPTPromptsClient } from "./types";
 
-const createChatGPTPrompt = (instance: ChatGPTAPI): ChatGPTPrompt => {
+/**
+ * @description ChatGPT Prompt, accepts the same parameters as the
+ * ChatGPTAPI constructor, but returns a promise that resolves to a
+ * ChatMessage.
+ *
+ * @see {@link https://github.com/transitive-bullshit/chatgpt-api/blob/main/docs/classes/ChatGPTAPI.md#constructor}
+ *
+ */
+const createChatGPTPrompt: ChatGPTPromptsClient = (params) => {
+  const instance = new ChatGPTAPI(params as ChatGPTPromptParams);
+
   return {
     ...prompts.linuxTerminal(instance),
     ...prompts.englishTranslatorAndImprover(instance),
@@ -10,6 +20,7 @@ const createChatGPTPrompt = (instance: ChatGPTAPI): ChatGPTPrompt => {
     ...prompts.javaScriptConsole(instance),
     ...prompts.excelSheet(instance),
     ...prompts.englishPronunciationHelper(instance),
+    ...prompts.spokenEnglishTeacherAndImprover(instance),
     ...prompts.travelGuide(instance),
     ...prompts.plagiarismChecker(instance),
     ...prompts.characterFromMovieBookAnything(instance),
@@ -36,7 +47,6 @@ const createChatGPTPrompt = (instance: ChatGPTAPI): ChatGPTPrompt => {
     ...prompts.cyberSecuritySpecialist(instance),
     ...prompts.recruiter(instance),
     ...prompts.lifeCoach(instance),
-    ...prompts.lifeCoach2(instance),
     ...prompts.etymologist(instance),
     ...prompts.commentariat(instance),
     ...prompts.magician(instance),
@@ -143,6 +153,7 @@ const createChatGPTPrompt = (instance: ChatGPTAPI): ChatGPTPrompt => {
     ...prompts.commitMessageGenerator(instance),
     ...prompts.chiefExecutiveOfficer(instance),
     ...prompts.diagramGenerator(instance),
+    ...prompts.lifeCoach2(instance),
     ...prompts.speechLanguagePathologistSlp(instance),
     ...prompts.startupTechLawyer(instance),
     ...prompts.titleGeneratorForWrittenPieces(instance),
@@ -151,6 +162,7 @@ const createChatGPTPrompt = (instance: ChatGPTAPI): ChatGPTPrompt => {
     ...prompts.mathematicalHistoryTeacher(instance),
     ...prompts.songRecommender(instance),
     ...prompts.coverLetter(instance),
+    ...prompts.technologyTransferer(instance),
     ...prompts.unconstrainedAiModelDan(instance),
   };
 };

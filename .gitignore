@@ -5,3 +5,4 @@ types.txt
 .env
 dist
 artifacts/*
+coverage
