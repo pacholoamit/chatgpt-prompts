@@ -1,7 +1,7 @@
 import * as fs from "fs";
 import ejs from "ejs";
-import { PromptCsvField } from "../types";
-import { funcTemplate } from "../template";
+import { PromptCsvField } from "./types";
+import { funcTemplate } from "./template";
 
 const generate = (template: string, path: string) => {
   return async (prompts: GeneratablePrompt[]) => {
