@@ -3,16 +3,15 @@ import { PromptCsvField } from "./types";
 import createReadmeGenerator from "./readme-generator";
 import createPromptsGenerator from "./prompts-generator";
 
+type PromptGenerator = ReturnType<typeof createPromptsGenerator>;
+
 const generateReadme = async (prompts: PromptCsvField[]): Promise<void> => {
   const readmeGenerator = createReadmeGenerator(templateMarkdownFile, readmeFile);
   const readmePrompts = readmeGenerator.format(prompts);
   readmeGenerator.generate(readmePrompts);
 };
 
-const generateCode = async (
-  instance: ReturnType<typeof createPromptsGenerator>,
-  prompts: PromptCsvField[]
-): Promise<void> => {
+const generateCode = async (instance: PromptGenerator, prompts: PromptCsvField[]): Promise<void> => {
   instance.writeInterface(typesFile, prompts);
   instance.writePromptsFunctions(promptsFile, prompts);
   instance.writeMainImports(methodImportsFile, prompts);
