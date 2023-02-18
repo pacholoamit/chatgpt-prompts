@@ -21,6 +21,7 @@
   "scripts": {
     "build": "tsup",
     "watch": "npm run build -- --watch src",
+    "test": "npx tsc --noEmit",
     "prepublishOnly": "npm run build",
     "generate:prompts": "cd generators && npm run generate"
   },
