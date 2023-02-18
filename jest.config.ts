@@ -1,12 +1,9 @@
-import type { JestConfigWithTsJest } from "ts-jest";
-
-const jestConfig: JestConfigWithTsJest = {
-  preset: "ts-jest",
+const jestConfig = {
   testEnvironment: "node",
-  transform: {
-    "^.+\\.ts?$": "ts-jest",
-  },
-  transformIgnorePatterns: ["node_modules"],
+  transform: {},
+  transformIgnorePatterns: ["./node_modules"],
+  extensionsToTreatAsEsm: [".ts"],
+  setupFiles: ["dotenv/config"],
 };
 
 export default jestConfig;
