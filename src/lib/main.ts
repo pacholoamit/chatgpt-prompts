@@ -2,7 +2,10 @@ import * as prompts from "./prompts";
 import { ChatGPTAPI } from "chatgpt";
 import { ChatGPTPrompt } from "./types";
 
-const createChatGPTPrompt = (instance: ChatGPTAPI): ChatGPTPrompt => {
+type ChatGPTPromptParams = ConstructorParameters<typeof ChatGPTAPI>[0];
+
+const createChatGPTPrompt = (params: Partial<ChatGPTPromptParams>): ChatGPTPrompt => {
+  const instance = new ChatGPTAPI(params as ChatGPTPromptParams);
   return {
     ...prompts.linuxTerminal(instance),
     ...prompts.englishTranslatorAndImprover(instance),

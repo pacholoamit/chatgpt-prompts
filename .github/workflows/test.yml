@@ -28,4 +28,4 @@ jobs:
         run: npm ci
 
       - name: Check Typescript types
-        run: npm run test
+        run: npm run pretest

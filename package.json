@@ -22,7 +22,7 @@
     "build": "tsup",
     "watch": "npm run build -- --watch src",
     "pretest": "tsc --noEmit",
-    "test": "jest --watchAll --verbose --coverage ",
+    "test": "jest --watchAll --verbose --coverage",
     "prepublishOnly": "npm run build",
     "generate:prompts": "cd generators && npm run generate"
   },
