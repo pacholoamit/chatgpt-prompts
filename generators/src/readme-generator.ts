@@ -3,6 +3,11 @@ import ejs from "ejs";
 import { PromptCsvField } from "./types";
 import { funcTemplate } from "./template";
 
+interface GeneratablePrompt {
+  code: string;
+  prompt: PromptCsvField;
+}
+
 const generate = (template: string, path: string) => {
   return async (prompts: GeneratablePrompt[]) => {
     const data = await ejs.renderFile(template, { data: prompts });
@@ -17,15 +22,10 @@ const format = (prompts: PromptCsvField[]) => {
   });
 };
 
-interface GeneratablePrompt {
-  code: string;
-  prompt: PromptCsvField;
-}
-
 const createReadmeGenerator = (template: string, path: string) => {
   return {
     generate: (prompts: GeneratablePrompt[]) => generate(template, path)(prompts),
-    format: (prompts: PromptCsvField[]) => format(prompts),
+    format,
   };
 };
 
