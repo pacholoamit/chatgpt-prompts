@@ -1,5 +1,5 @@
 {
-  "name": "chatgpt-app",
+  "name": "chatgpt-development",
   "version": "1.0.0",
   "description": "",
   "main": "dist/index.js",
@@ -20,6 +20,6 @@
     "node": ">=18"
   },
   "dependencies": {
-    "chatgpt-prompts": "^2.0.0"
+    "chatgpt-prompts": "../../dist"
   }
 }

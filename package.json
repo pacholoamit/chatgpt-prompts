@@ -1,6 +1,6 @@
 {
   "name": "chatgpt-prompts",
-  "version": "2.0.1",
+  "version": "3.0.0",
   "description": "A NodeJS ChatGPT prompts library",
   "type": "module",
   "source": "./src/index.ts",
@@ -54,7 +54,7 @@
     "typescript": "^4.9.5"
   },
   "dependencies": {
-    "chatgpt": "^4.1.1"
+    "chatgpt": "^5.1.2"
   },
   "keywords": [
     "openai",

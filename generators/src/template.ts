@@ -18,7 +18,7 @@ export const ${func} = (instance: ChatGPTAPI) => {
 
 export const typeTemplate = (prompts: PromptCsvField[]) => {
   const template = `
-interface ChatGPTPrompt {
+export interface ChatGPTPromptsCollection {
   ${prompts
     .map(
       (prompt) => `
