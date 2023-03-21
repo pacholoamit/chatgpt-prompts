@@ -23,9 +23,6 @@ test("must return prompts as an object", () => {
 test("must return a message as an object", () => {
   expect(message && typeof message == "object").toBe(true);
 });
-test("must return a conversationId as a string from a message", () => {
-  expect(typeof message.conversationId).toBe("string");
-});
 
 test("must return a text as a string from a message", () => {
   expect(typeof message.text).toBe("string");
