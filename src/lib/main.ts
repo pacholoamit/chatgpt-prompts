@@ -164,6 +164,14 @@ const createChatGPTPrompt: ChatGPTPromptsClient = (params) => {
     ...prompts.coverLetter(instance),
     ...prompts.technologyTransferer(instance),
     ...prompts.unconstrainedAiModelDan(instance),
+    ...prompts.gomokuPlayer(instance),
+    ...prompts.proofreader(instance),
+    ...prompts.buddha(instance),
+    ...prompts.muslimImam(instance),
+    ...prompts.chemicalReactor(instance),
+    ...prompts.friend(instance),
+    ...prompts.chatGptPromptGenerator(instance),
+    ...prompts.wikipediaPage(instance),
   };
 };
 
