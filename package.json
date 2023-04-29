@@ -1,6 +1,6 @@
 {
   "name": "chatgpt-prompts",
-  "version": "3.0.0",
+  "version": "3.1.0",
   "description": "A NodeJS ChatGPT prompts library",
   "type": "module",
   "source": "./src/index.ts",
