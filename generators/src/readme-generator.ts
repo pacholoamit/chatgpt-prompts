@@ -1,6 +1,6 @@
 import * as fs from "fs";
 import ejs from "ejs";
-import { PromptCsvField } from "./types";
+import { Generateable, PromptCsvField } from "./types";
 import { funcTemplate } from "./template";
 
 interface GeneratablePrompt {
@@ -8,10 +8,10 @@ interface GeneratablePrompt {
   prompt: PromptCsvField;
 }
 
-const generate = (template: string, path: string) => {
+const generate = (input: Generateable) => {
   return async (prompts: GeneratablePrompt[]) => {
-    const data = await ejs.renderFile(template, { data: prompts });
-    fs.writeFileSync(path, data);
+    const data = await ejs.renderFile(input.source, { data: prompts });
+    fs.writeFileSync(input.destination, data);
   };
 };
 
@@ -22,9 +22,9 @@ const format = (prompts: PromptCsvField[]) => {
   });
 };
 
-const createReadmeGenerator = (template: string, path: string) => {
+const createReadmeGenerator = (input: Generateable) => {
   return {
-    generate: (prompts: GeneratablePrompt[]) => generate(template, path)(prompts),
+    generate: (prompts: GeneratablePrompt[]) => generate(input)(prompts),
     format,
   };
 };
