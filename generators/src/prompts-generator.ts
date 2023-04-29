@@ -7,14 +7,16 @@ import { PromptCsvField } from "./types";
 const makeUniquePrompts = (prompts: PromptCsvField[]) => {
   const uniqueArray: PromptCsvField[] = [];
   prompts.forEach((prompt) => {
-    let newPrompt = prompt;
     let counter = 2;
-    if (uniqueArray.some((item) => item.act === newPrompt.act)) {
-      newPrompt.act = `${newPrompt.act}${counter}`;
+
+    if (uniqueArray.some((item) => item.act.toLowerCase() === prompt.act.toLowerCase())) {
+      console.log(`Duplicate prompt found: ${prompt.act}`);
+      prompt.act = `${prompt.act}${counter}`;
       counter++;
     }
-    uniqueArray.push(newPrompt);
+    uniqueArray.push(prompt);
   });
+
   return uniqueArray;
 };
 
