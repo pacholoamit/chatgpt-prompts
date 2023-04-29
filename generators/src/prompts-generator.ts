@@ -1,8 +1,9 @@
 import axios, { AxiosResponse } from "axios";
 import csv from "csvtojson";
 import fs from "fs";
+import ejs from "ejs";
 import { funcTemplate, methodImportTemplate, typeTemplate } from "./template";
-import { PromptCsvField } from "./types";
+import { Generateable, PromptCsvField } from "./types";
 
 const makeUniquePrompts = (prompts: PromptCsvField[]) => {
   const uniqueArray: PromptCsvField[] = [];
@@ -25,9 +26,10 @@ const getPrompts = async (url: string): Promise<PromptCsvField[]> => {
   return csv().fromString(res.data);
 };
 
-const writeInterface = (filePath: string, prompts: PromptCsvField[]) => {
-  const types = typeTemplate(prompts);
-  fs.writeFileSync(filePath, types);
+const writeInterface = async (input: Generateable, prompts: PromptCsvField[]) => {
+  const types = await ejs.renderFile(input.source, { prompts });
+  // const types = typeTemplate(prompts);
+  fs.writeFileSync(input.destination, types);
 };
 
 const writePromptsFunctions = (filePath: string, prompts: PromptCsvField[]) => {

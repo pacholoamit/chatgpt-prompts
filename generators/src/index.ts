@@ -18,7 +18,11 @@ const generateReadme = async (prompts: PromptCsvField[]): Promise<void> => {
 };
 
 const generateCode = async (instance: PromptGenerator, prompts: PromptCsvField[]): Promise<void> => {
-  instance.writeInterface(path.join("./artifacts/types.txt"), prompts);
+  const typesGenerateable: Generateable = {
+    source: path.join(__dirname, "../templates/types.txt"),
+    destination: path.join(__dirname, "./artifacts/types.txt"),
+  };
+  await instance.writeInterface(typesGenerateable, prompts);
   instance.writePromptsFunctions("./artifacts/prompts.txt", prompts);
   instance.writeMainImports(path.join("./artifacts/imports.txt"), prompts);
 };
