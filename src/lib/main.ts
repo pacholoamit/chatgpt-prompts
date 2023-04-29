@@ -170,8 +170,13 @@ const createChatGPTPrompt: ChatGPTPromptsClient = (params) => {
     ...prompts.muslimImam(instance),
     ...prompts.chemicalReactor(instance),
     ...prompts.friend(instance),
+    ...prompts.pythonInterpreter2(instance),
     ...prompts.chatGptPromptGenerator(instance),
     ...prompts.wikipediaPage(instance),
+    ...prompts.japaneseKanjiQuizMachine(instance),
+    ...prompts.noteTakingAssistant(instance),
+    ...prompts.languageLiteraryCritic(instance),
+    ...prompts.cheapTravelTicketAdvisor(instance),
   };
 };
 
