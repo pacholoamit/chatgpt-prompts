@@ -3045,7 +3045,7 @@ export const friend = (instance: ChatGPTAPI) => {
 
 
 
-## Python Interpreter
+## Python Interpreter2
 
 Act as a Python interpreter. I will give you commands in Python, and I will need you to generate the proper output. Only say the output. But if there is none, say nothing, and don&#39;t give me an explanation. If I need to say something, I will do so through comments. My first command is &#34;print(&#39;Hello World&#39;).&#34;
 
@@ -3053,10 +3053,10 @@ Act as a Python interpreter. I will give you commands in Python, and I will need
 
 ```typescript
 
-export const pythonInterpreter = (instance: ChatGPTAPI) => {
+export const pythonInterpreter2 = (instance: ChatGPTAPI) => {
   const prompt = `Act as a Python interpreter. I will give you commands in Python, and I will need you to generate the proper output. Only say the output. But if there is none, say nothing, and don't give me an explanation. If I need to say something, I will do so through comments. My first command is "print('Hello World')."`;
   return {
-    pythonInterpreter: async (message: string): Promise<ChatMessage> => createPromptFactory(instance, prompt)(message),
+    pythonInterpreter2: async (message: string): Promise<ChatMessage> => createPromptFactory(instance, prompt)(message),
   };
 };
 
