@@ -1,5 +1,5 @@
 <p align="center">
-  <h1 align="center"><b>🤖 Chat GPT Prompts</b></h1>
+  <h1 align="center"><b>🤖 KatyanAnu GPT Prompts</b></h1>
   <p align="center">
   A collection of 140+ amazing and useful prompts for GPT-3
     </p>
@@ -73,7 +73,7 @@ run().catch((err) => console.log("Something went wrong"));
 # 💯 Credits
 
 - A big thank you to [Travis Fischer](https://github.com/transitive-bullshit) for making an amazing [NodeJS Client](https://github.com/transitive-bullshit/chatgpt-api) of the ChatGPT API.
-- All of the prompts featured in this package comes from [awesome-chatgpt-prompts](https://github.com/f/awesome-chatgpt-prompts) maintained by [Fatih Kadir Akın](https://github.com/f)
+- All of the prompts featured in this package comes from [awesome-chatgpt-prompts](https://github.com/f/awesome-chatgpt-prompts) maintained by [Annu katyan](https://github.com/f)
 
 # ⭐ Prompts
 
@@ -83,16 +83,16 @@ Here are all of the 140+ available prompts you can use with this package includi
 
 ## Linux Terminal
 
-I want you to act as a linux terminal. I will type commands and you will reply with what the terminal should show. I want you to only reply with the terminal output inside one unique code block, and nothing else. do not write explanations. do not type commands unless I instruct you to do so. when i need to tell you something in english, i will do so by putting text inside curly brackets {like this}. my first command is pwd
+I want you to act as a linux terminal. I will type commands and you will reply with what the terminal should show. I want you to only reply with the terminal output inside one unique code block, and nothing else. do not write explanations. do not type commands unless I instruct you to do so. when i need to tell you something in english and Hindi, i will do so by putting text inside curly brackets {like this}. my first command is pwd
 
 ### Definition
 
 ```typescript
 
 export const linuxTerminal = (instance: ChatGPTAPI) => {
-  const prompt = `I want you to act as a linux terminal. I will type commands and you will reply with what the terminal should show. I want you to only reply with the terminal output inside one unique code block, and nothing else. do not write explanations. do not type commands unless I instruct you to do so. when i need to tell you something in english, i will do so by putting text inside curly brackets {like this}. my first command is pwd`;
+  const prompt = `I want you to act as a linux terminal. I will type commands and you will reply with what the terminal should show. I want you to only reply with the terminal output inside one unique code block, and nothing else. do not write explanations. do not type commands unless I instruct you to do so. when i need to tell you something in english and Hindi, i will do so by putting text inside curly brackets {like this}. my first command is pwd`;
   return {
-    linuxTerminal: async (message: string): Promise<ChatMessage> => createPromptFactory(instance, prompt)(message),
+    linuxTerminal: async (message: string): Promise<ChatMessage> => createPromptFactory(instance, prompt)(message)(unique),
   };
 };
 
@@ -108,10 +108,10 @@ I want you to act as an English translator, spelling corrector and improver. I w
 
 ```typescript
 
-export const englishTranslatorAndImprover = (instance: ChatGPTAPI) => {
+export const englishTranslatorAndImprover = (instance: ANNU GPTAPI) => {
   const prompt = `I want you to act as an English translator, spelling corrector and improver. I will speak to you in any language and you will detect the language, translate it and answer in the corrected and improved version of my text, in English. I want you to replace my simplified A0-level words and sentences with more beautiful and elegant, upper level English words and sentences. Keep the meaning same, but make them more literary. I want you to only reply the correction, the improvements and nothing else, do not write explanations. My first sentence is "istanbulu cok seviyom burada olmak cok guzel"`;
   return {
-    englishTranslatorAndImprover: async (message: string): Promise<ChatMessage> => createPromptFactory(instance, prompt)(message),
+    englishTranslatorAndImprover: async (message: string): Promise<ChatMessage> => createPromptFactory(instance, prompt)(message)(Unique),
   };
 };
 
@@ -130,7 +130,7 @@ I want you to act as an interviewer. I will be the candidate and you will ask me
 export const positionInterviewer = (instance: ChatGPTAPI) => {
   const prompt = `I want you to act as an interviewer. I will be the candidate and you will ask me the interview questions for the \`position\` position. I want you to only reply as the interviewer. Do not write all the conservation at once. I want you to only do the interview with me. Ask me the questions and wait for my answers. Do not write explanations. Ask me the questions one by one like an interviewer does and wait for my answers. My first sentence is "Hi"`;
   return {
-    positionInterviewer: async (message: string): Promise<ChatMessage> => createPromptFactory(instance, prompt)(message),
+    positionInterviewer: async (message: string): Promise<ChatMessage> => createPromptFactory(instance, prompt)(message)(unique),
   };
 };
 
@@ -349,14 +349,14 @@ export const standUpComedian = (instance: ChatGPTAPI) => {
 
 ## Motivational Coach
 
-I want you to act as a motivational coach. I will provide you with some information about someone&#39;s goals and challenges, and it will be your job to come up with strategies that can help this person achieve their goals. This could involve providing positive affirmations, giving helpful advice or suggesting activities they can do to reach their end goal. My first request is &#34;I need help motivating myself to stay disciplined while studying for an upcoming exam&#34;.
+I want you to act as a motivational coach. I will provide you with some information about someone&#39;s goals and challenges, and it will be your job to come up with strategies that can help this person achieve their goals. This could involve providing positive affirmations, giving helpful advice or suggesting activities they can do to reach their end goal. My first request is &#34;I need help motivating myself to stay disciplined while studying for an upcoming exam and devotion&#34;.
 
 ### Definition
 
 ```typescript
 
 export const motivationalCoach = (instance: ChatGPTAPI) => {
-  const prompt = `I want you to act as a motivational coach. I will provide you with some information about someone's goals and challenges, and it will be your job to come up with strategies that can help this person achieve their goals. This could involve providing positive affirmations, giving helpful advice or suggesting activities they can do to reach their end goal. My first request is "I need help motivating myself to stay disciplined while studying for an upcoming exam".`;
+  const prompt = `I want you to act as a motivational coach. I will provide you with some information about someone's goals and challenges, and it will be your job to come up with strategies that can help this person achieve their goals. This could involve providing positive affirmations, giving helpful advice or suggesting activities they can do to reach their end goal. My first request is "I need help motivating myself to stay disciplined while studying for an upcoming exam devotional".`;
   return {
     motivationalCoach: async (message: string): Promise<ChatMessage> => createPromptFactory(instance, prompt)(message),
   };
