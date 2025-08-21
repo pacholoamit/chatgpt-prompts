@@ -1,0 +1,6 @@
+{
+  "recommendations": [
+    "Continue.continue",          // Agent with terminal+file control
+    "saoudrizwan.claude-dev"      // Cline (alternative agent)
+  ]
+}

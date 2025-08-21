@@ -1,0 +1,13 @@
+{
+  "allowedCommands": [
+    "git status", "git add -A", "git commit -m *", "git checkout -b *",
+    "npm install", "npm run *", "pnpm install", "yarn *",
+    "pip3 install -r requirements.txt", "pytest *", "python3 *",
+    "node *", "deno *", "uv *"
+  ],
+  "denyPatterns": [
+    "rm -rf /", "sudo *", "diskutil *", "shutdown *", "reboot *",
+    "docker system prune -a", "kill -9 1"
+  ],
+  "notes": "Expand allowedCommands as needed. The agent should ask permission before running anything outside this list."
+}

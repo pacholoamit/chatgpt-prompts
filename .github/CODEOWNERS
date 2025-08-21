@@ -1,0 +1,7 @@
+# CODEOWNERS — adjust as your team grows
+# Ownership defaults to @asoudi1987
+*                                  @asoudi1987
+.github/workflows/*               @asoudi1987
+.agent/*                          @asoudi1987
+**/*.md                           @asoudi1987
+**/*.{js,ts,tsx,py}               @asoudi1987
