@@ -27,7 +27,7 @@ export interface ChatGPTPromptsCollection {
      * @param {string} message
      * @returns {Promise<ChatMessage>} ChatGPT Message
      */   
-  ${camelCase(prompt.act)}: (message: string) => Promise<ChatMessage>;`
+  ${camelCase(prompt.act)}: (message: string) => Promise<ChatMessage>;`,
     )
     .join("\n")} 
 }

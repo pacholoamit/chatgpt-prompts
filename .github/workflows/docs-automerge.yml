@@ -1,0 +1,17 @@
+name: Auto-merge docs-only
+on:
+  pull_request:
+    types: [opened, synchronize, reopened, labeled]
+permissions:
+  contents: read
+  pull-requests: write
+jobs:
+  enable-automerge:
+    if: contains(join(fromJson(toJson(github.event.pull_request.labels)).*.name), docs) && github.event.pull_request.head.repo.fork == false
+    runs-on: ubuntu-latest
+    steps:
+      - name: Enable PR auto-merge (squash) for docs-labeled PR
+        uses: peter-evans/enable-pull-request-automerge@v3
+        with:
+          pull-request-number: ${{ github.event.pull_request.number }}
+          merge-method: squash

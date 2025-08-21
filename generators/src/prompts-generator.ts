@@ -41,9 +41,11 @@ const writeMainImports = (filePath: string, prompts: PromptCsvField[]) => {
 };
 
 const createPromptsGenerator = () => {
-  const url = "https://raw.githubusercontent.com/f/awesome-chatgpt-prompts/main/prompts.csv";
+  const url =
+    "https://raw.githubusercontent.com/f/awesome-chatgpt-prompts/main/prompts.csv";
   return {
-    getPrompts: () => getPrompts(url).then((prompts) => makeUniquePrompts(prompts)),
+    getPrompts: () =>
+      getPrompts(url).then((prompts) => makeUniquePrompts(prompts)),
     writeInterface,
     writePromptsFunctions,
     writeMainImports,

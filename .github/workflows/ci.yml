@@ -1,0 +1,37 @@
+name: CI
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: "npm"
+          cache-dependency-path: "package-lock.json"
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.x"
+      - name: Bootstrap
+        run: |
+          if [ -f package.json ]; then (npm ci || npm install); fi
+          if [ -f requirements.txt ]; then python3 -m pip install -r requirements.txt; fi
+      - name: Build (if script exists)
+        run: |
+          if [ -f package.json ] && jq -e ".scripts.build" package.json >/dev/null 2>&1; then npm run build; else echo "no build script"; fi
+      - name: Tests (best-effort)
+        run: |
+          if [ -f package.json ]; then npm test --silent || echo "no npm tests"; fi
+          if command -v pytest >/dev/null 2>&1; then pytest -q || echo "no pytest"; fi

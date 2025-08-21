@@ -57,10 +57,14 @@ const run = async () => {
   });
 
   // Use the Accountant prompt of ChatGPT
-  let res = await prompt.accountant("Why am I still broke as a software engineer?");
+  let res = await prompt.accountant(
+    "Why am I still broke as a software engineer?",
+  );
   console.log(res.text);
 
-  res = await prompt.accountant("How do I not become broke as a software engineer?");
+  res = await prompt.accountant(
+    "How do I not become broke as a software engineer?",
+  );
   console.log(res.text);
 
   res = await prompt.accountant("Am I a software engineer?");

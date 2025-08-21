@@ -1,0 +1,13 @@
+docs:
+  - changed-files:
+      - any-glob-to-any-file: "docs/**"
+      - any-glob-to-any-file: "**/*.md"
+
+ci:
+  - changed-files:
+      - any-glob-to-any-file: ".github/workflows/**"
+
+chore:
+  - changed-files:
+      - any-glob-to-any-file: ".vscode/**"
+      - any-glob-to-any-file: "Makefile"

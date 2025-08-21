@@ -2,7 +2,9 @@ import { ChatGPTAPI, ChatMessage } from "chatgpt";
 
 export type ChatGPTPromptParams = ConstructorParameters<typeof ChatGPTAPI>[0];
 
-export type ChatGPTPromptsClient = (params: Partial<ChatGPTPromptParams>) => ChatGPTPromptsCollection;
+export type ChatGPTPromptsClient = (
+  params: Partial<ChatGPTPromptParams>,
+) => ChatGPTPromptsCollection;
 
 export interface ChatGPTPromptsCollection {
   /**

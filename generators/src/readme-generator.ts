@@ -24,7 +24,8 @@ const format = (prompts: PromptCsvField[]) => {
 
 const createReadmeGenerator = (template: string, path: string) => {
   return {
-    generate: (prompts: GeneratablePrompt[]) => generate(template, path)(prompts),
+    generate: (prompts: GeneratablePrompt[]) =>
+      generate(template, path)(prompts),
     format,
   };
 };
